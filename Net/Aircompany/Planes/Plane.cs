@@ -17,25 +17,13 @@ namespace Aircompany.Planes
             _maxLoadCapacity = maxLoadCapacity;
         }
 
-        public string GetModel()
-        {
-            return _model;
-        }
+        public string GetModel() => _model;
 
-        public int GetMS()
-        {
-            return _maxSpeed;
-        }
+        public int GetMS() => _maxSpeed;
 
-        public int MAXFlightDistance()
-        {
-            return _maxFlightDistance;
-        }
+        public int MAXFlightDistance() => _maxFlightDistance;
 
-        public int MAXLoadCapacity()
-        {
-            return _maxLoadCapacity;
-        }
+        public int MAXLoadCapacity() => _maxLoadCapacity;
 
         public override string ToString()
         {
@@ -49,8 +37,7 @@ namespace Aircompany.Planes
 
         public override bool Equals(object obj)
         {
-            var plane = obj as Plane;
-            return plane != null &&
+            return obj is Plane plane &&
                    _model == plane._model &&
                    _maxSpeed == plane._maxSpeed &&
                    _maxFlightDistance == plane._maxFlightDistance &&
@@ -65,7 +52,7 @@ namespace Aircompany.Planes
             hashCode = hashCode * -1521134295 + _maxFlightDistance.GetHashCode();
             hashCode = hashCode * -1521134295 + _maxLoadCapacity.GetHashCode();
             return hashCode;
-        }        
+        }
 
     }
 }
