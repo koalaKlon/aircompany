@@ -12,13 +12,8 @@ namespace Aircompany.Planes
             _type = type;
         }
 
-        public override bool Equals(object obj)
-        {
-            var plane = obj as MilitaryPlane;
-            return plane != null &&
-                   base.Equals(obj) &&
-                   _type == plane._type;
-        }
+        public override bool Equals(object obj) => obj is MilitaryPlane plane && base.Equals(obj) && _type == plane._type;
+
 
         public override int GetHashCode()
         {
@@ -28,17 +23,10 @@ namespace Aircompany.Planes
             return hashCode;
         }
 
-        public MilitaryType PlaneTypeIs()
-        {
-            return _type;
-        }
+        public MilitaryType PlaneTypeIs() => _type;
 
 
-        public override string ToString()
-        {
-            return base.ToString().Replace("}",
-                    ", type=" + _type +
-                    '}');
-        }        
+        public override string ToString() => base.ToString().Replace("}", ", type=" + _type + '}');
+
     }
 }
